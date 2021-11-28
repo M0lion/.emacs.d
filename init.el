@@ -20,7 +20,7 @@
 
 (defun font-exists-p (font)
   (cl-labels ((font-exists-r (font-list)
-			     (when
+			     (when font-list
 				 (if (string= font (car font-list))
 				     t
 				   (font-exists-r (cdr font-list))))))
