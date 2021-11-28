@@ -18,10 +18,20 @@
   (write-region "" nil custom-file))
 (load custom-file)
 
-(set-face-attribute 'default nil
-		    :font "Courier New"
-		    :weight 'semi-bold
-		    :height 110)
+(defun font-exists-p (font)
+  (cl-labels ((font-exists-r (font-list)
+			     (when
+				 (if (string= font (car font-list))
+				     t
+				   (font-exists-r (cdr font-list))))))
+    (font-exists-r (font-family-list))))
+
+(when (font-exists-p "Courier New")
+  (set-face-attribute 'default nil
+		      :font "Courier New"
+		      :weight 'semi-bold
+		      :height 110))
+
 (load-theme 'wombat)
 
 ;; Enable line numbers
