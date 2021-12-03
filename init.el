@@ -1,5 +1,5 @@
-;; Turn off beep
-(setq visible-bell t)
+;; Misc
+(load-module 'misc)
 
 ;; Check for proxy settings
 (try-load 'proxy)
