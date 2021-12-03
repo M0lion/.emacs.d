@@ -4,4 +4,4 @@
       (file "~/.emacs.d/an-old-hope-theme.el"))
   (unless (file-exists-p file)
     (url-copy-file url file))
-  (load-theme theme))
+  (load-theme theme t))
